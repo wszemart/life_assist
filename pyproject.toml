@@ -1,0 +1,27 @@
+[tool.isort]
+profile = "django"
+combine_as_imports = true
+include_trailing_comma = true
+line_length = 120
+
+[tool.black]
+line-length = 120
+
+[tool.poetry]
+name = "life-assist"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "5.0.2"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "3.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
