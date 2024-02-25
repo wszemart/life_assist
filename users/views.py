@@ -3,7 +3,7 @@ from django.contrib.auth import logout as auth_logout
 from django.shortcuts import redirect, render
 from django.views import View
 
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UserUpdateForm
 
 
 class NewUserRegister(View):
@@ -33,18 +33,18 @@ class LogoutUser(View):
         return redirect("login")
 
 
-# class UserProfile(LoginRequiredMixin, View):
-#     template_name: str = "users/profile.html"
-#
-#     def get(self, request):
-#         user_form = UserUpdateForm(instance=request.user)
-#         return render(request, self.template_name, {"user_form": user_form})
-#
-#     def post(self, request):
-#         user_form = UserUpdateForm(request.POST, instance=request.user)
-#         if user_form.is_valid():
-#             user_form.save()
-#             messages.success(request, "Your profile has been updated")
-#             return redirect("profile")
-#         messages.error(request, "There was an error updating your profile")
-#         return redirect("profile")
+class UserProfile(View):
+    template_name: str = "users/profile.html"
+
+    def get(self, request) -> render:
+        user_form = UserUpdateForm(instance=request.user)
+        return render(request, self.template_name, {"user_form": user_form})
+
+    def post(self, request):
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+        if user_form.is_valid():
+            user_form.save()
+            messages.success(request, "Your profile has been updated")
+            return redirect("profile")
+        messages.error(request, "There was an error updating your profile")
+        return redirect("profile")
