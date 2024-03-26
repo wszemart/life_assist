@@ -30,7 +30,14 @@ class LogoutUser(View):
         message: str = "You have been successfully logged out"
         messages.success(request, message)
 
-        return redirect("login")
+        return redirect("home")
+
+
+class HomePage(View):
+    template_name = "users/landing_page.html"
+
+    def get(self, request) -> redirect:
+        return render(request, self.template_name)
 
 
 class UserProfile(View):
@@ -48,3 +55,10 @@ class UserProfile(View):
             return redirect("profile")
         messages.error(request, "There was an error updating your profile")
         return redirect("profile")
+
+
+class Dashboard(View):
+    template_name = "users/dashboard.html"
+
+    def get(self, request) -> redirect:
+        return render(request, self.template_name)
