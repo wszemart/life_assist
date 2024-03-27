@@ -1,5 +1,6 @@
 {% extends "users/index.html" %}
 {% load crispy_forms_tags %}
+
 {% block content %}
     <div class="container">
         <div class="row justify-content-center">
@@ -19,9 +20,10 @@
                             <div class="row">
                                 <div class="align-left col-xl-3 col-md-6">
                                     <div class="media">
-                                        <img class="rounded-circle" src="{{ user.profile.image.url }}" height="250px" width="250px" alt="Cann't load user profile picture."/>
+                                        <img id="profile-pic" class="rounded-circle" src="{{ user.profile.image.url }}" height="250px" width="250px" alt="Can't load user profile picture." onclick="openFileUpload()"/>
                                     </div>
                                 </div>
+                                
                                 <div class="col">
                                     <form method="post">
                                         {% csrf_token %}
@@ -42,3 +44,20 @@
         </div>
     </div>
 {% endblock content %}
+
+<script>
+    function openFileUpload() {
+        document.getElementById('fileInput').click();
+    }
+
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var img = document.getElementById('profile-pic');
+            img.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+<input type="file" id="fileInput" style="display:none;" onchange="previewImage(event)">

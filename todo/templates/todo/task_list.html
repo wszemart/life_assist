@@ -1,0 +1,25 @@
+{% extends "users/index.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Tasks</h1>
+
+{% for task in tasks %}
+<div class="card mt-3" style="background-color: yellow">
+    <div class="card-body">
+        <h5 class="card-title">{{ task.title }}</h5>
+        <p class="card-text">Created at: {{ task.created_at }}</p>
+        {% if task.deadline %}
+        <p class="card-text">Deadline: {{ task.deadline }}</p>
+        {% endif %}
+        <button type="button" class="btn btn-primary">Mark as Completed</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-warning">Edit</button>
+        <button type="button" class="btn btn-info">Set Deadline</button>
+    </div>
+</div>
+{% empty %}
+<p>No tasks available.</p>
+{% endfor %}
+
+{% endblock content %}
