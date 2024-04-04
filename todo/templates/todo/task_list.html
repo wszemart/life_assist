@@ -4,7 +4,7 @@
 {% block content %}
 <h1>Tasks</h1>
 
-{% for task in tasks %}
+{% for task in object_list %}
 <div class="card mt-3" style="background-color: yellow">
     <div class="card-body">
         <h5 class="card-title">{{ task.title }}</h5>
