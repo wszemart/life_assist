@@ -84,10 +84,7 @@ Logged-in users can add, edit, and delete tasks from the list. They can sort tas
 <details>
 <summary>Click to expand</summary>
 
-![landing_page](https://github.com/wszemart/tool_manager/assets/95930936/20927c3d-5798-4b2a-ace5-057ec7db2f2b)
-
-![dashboard](https://github.com/wszemart/tool_manager/assets/95930936/85318f5a-2228-4899-a9c9-d2119904c05c)
-
-![to_do](https://github.com/wszemart/tool_manager/assets/95930936/ebeb627e-2ae2-4cae-85d7-9ea1af75ddbd)
+![landing_page](https://github.com/wszemart/life_assist/assets/95930936/6d7cb6f4-9e39-43cf-b3db-5011e2c2fdf5)
+![dashboard](https://github.com/wszemart/life_assist/assets/95930936/aa17a386-b402-4ac2-8792-7d50db88ff5e)
 
 </details>
