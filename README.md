@@ -75,7 +75,7 @@ Autorised user can update his profile information such as: email adress, profile
 #### 2. To-do App
 
 <ul>
-Logged-in users can add, edit, and delete tasks from the list. They can sort tasks with varius values, mark them as complited and add new task category 
+Logged-in users can add, edit, and delete tasks from the list. They can sort tasks with varius values, mark them as complited and add new task category
 </ul>
 
 </details>

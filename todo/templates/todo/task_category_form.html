@@ -1,0 +1,12 @@
+{% extends "users/index.html" %}
+{% load static %}
+
+{% block content %}
+  <h1>Create New Task Category</h1>
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}
