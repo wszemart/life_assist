@@ -46,8 +46,11 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "users",
     "todo",
+    "bootstrap4",
     "crispy_bootstrap4",
     "crispy_forms",
+    "bootstrap_datepicker_plus",
+    "view_breadcrumbs",
 ]
 
 MIDDLEWARE = [
@@ -153,3 +156,5 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = "/media/"
+
+BREADCRUMBS_TEMPLATE = "users/view_breadcrumbs.html"

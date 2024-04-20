@@ -29,7 +29,7 @@ urlpatterns = [
     path("profile/", UserProfile.as_view(), name="profile"),
     path("", HomePage.as_view(), name="home"),
     path("dashboard/", Dashboard.as_view(), name="dashboard"),
-    path("", include("todo.urls")),
+    path("todo/", include("todo.urls", namespace="todo")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

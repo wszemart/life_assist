@@ -22,13 +22,6 @@ class Task(models.Model):
         ("BLOCKED", "Blocked"),
     ]
 
-    STATUS_COLORS = {
-        "TO_DO": "lightgoldenrodyellow",
-        "IN_PROGRESS": "lightblue",
-        "DONE": "lightgreen",
-        "BLOCKED": "lightcoral",
-    }
-
     title = models.CharField(max_length=200, help_text="Title of the task")
     completed = models.CharField(max_length=100, choices=COMPLETE_STATUS_CHOICES, help_text="Task status")
     category = models.ForeignKey(TaskCategory, on_delete=models.CASCADE, help_text="Task category")

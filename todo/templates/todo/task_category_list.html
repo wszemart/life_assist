@@ -3,7 +3,7 @@
 
 {% block content %}
   <h1>Task Categories</h1>
-  
+
   <ul>
     {% for category in object_list %}
       <li>{{ category.category_name }}</li>
@@ -12,5 +12,5 @@
     {% endfor %}
   </ul>
 
-  <a href="{% url 'create-category' %}">Create New Category</a>
-{% endblock %}
+  <a href="{% url 'create-task-category' %}">Create New Category</a>
+{% endblock content %}

@@ -1,3 +1,4 @@
+from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 from django import forms
 
 from .models import Task, TaskCategory
@@ -7,7 +8,6 @@ class TaskForm(forms.ModelForm):
     category = forms.ModelChoiceField(required=True, queryset=TaskCategory.objects.all())
     title = forms.CharField(required=True)
     completed = forms.ChoiceField(required=True, choices=Task.COMPLETE_STATUS_CHOICES)
-    deadline = forms.DateField(widget=forms.DateInput(), required=False)
 
     class Meta:
         model = Task
@@ -17,6 +17,7 @@ class TaskForm(forms.ModelForm):
             "completed",
             "deadline",
         ]
+        widgets = {"deadline": DateTimePickerInput()}
 
 
 class TaskCategoryForm(forms.ModelForm):
