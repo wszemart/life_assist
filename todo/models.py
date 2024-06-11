@@ -4,7 +4,7 @@ from django.db import models
 
 class TaskCategory(models.Model):
     category_name = models.CharField(max_length=100, help_text="Name of the task category", unique=True)
-    is_default = models.BooleanField(default=False, help_text="Is this a default category?")
+    is_default = models.BooleanField(default=False, help_text="Is this a default category?", blank=True)
 
     def save(self, *args, **kwargs):
         self.category_name = self.category_name.upper()

@@ -22,7 +22,7 @@ class TaskForm(forms.ModelForm):
 
 class TaskCategoryForm(forms.ModelForm):
     category_name = forms.CharField(required=True)
-    is_default = forms.BooleanField(required=True)
+    is_default = forms.BooleanField(required=False)
 
     class Meta:
         model = TaskCategory

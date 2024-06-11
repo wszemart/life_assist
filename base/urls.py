@@ -30,6 +30,7 @@ urlpatterns = [
     path("", HomePage.as_view(), name="home"),
     path("dashboard/", Dashboard.as_view(), name="dashboard"),
     path("todo/", include("todo.urls", namespace="todo")),
+    path("medialibrary/", include("medialibrary.urls", namespace="medialibrary")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
