@@ -1,16 +1,10 @@
 from bootstrap_datepicker_plus.widgets import YearPickerInput
 from django import forms
 
-from .models import Book
+from .models import Book, Movie
 
 
 class BookForm(forms.ModelForm):
-    title = forms.CharField(required=True)
-    author = forms.CharField(required=True)
-    summary = forms.CharField(widget=forms.Textarea)
-    published_date = YearPickerInput()
-    rating = forms.IntegerField(required=True)
-
     class Meta:
         model = Book
         fields = [
@@ -21,3 +15,16 @@ class BookForm(forms.ModelForm):
             "rating",
         ]
         widgets = {"published_date": YearPickerInput()}
+
+
+class MovieForm(forms.ModelForm):
+    class Meta:
+        model = Movie
+        fields = [
+            "title",
+            "director",
+            "release_date",
+            "summary",
+            "rating",
+        ]
+        widgets = {"release_date": YearPickerInput()}

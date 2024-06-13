@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.utils.functional import cached_property
 from django.views.generic import CreateView, DeleteView, ListView, UpdateView
-from view_breadcrumbs import BaseBreadcrumbMixin, ListBreadcrumbMixin, CreateBreadcrumbMixin, DetailBreadcrumbMixin
+from view_breadcrumbs import CreateBreadcrumbMixin, DetailBreadcrumbMixin, ListBreadcrumbMixin
 
 from .forms import TaskCategoryForm, TaskForm
 from .models import Task, TaskCategory
