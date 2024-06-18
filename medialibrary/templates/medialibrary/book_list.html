@@ -11,9 +11,9 @@
         <h4 class="display-4 mb-3 fw-semibold" style="color: #0a53be; padding-top: 1.5rem">Books</h4>
         <div class="d-inline-flex">
             <a href="{% url 'medialibrary:create-book' %}" class="btn btn-secondary mb-3 me-2">Add new book</a>
+            <a href="{% url 'medialibrary:create-author' %}" class="btn btn-secondary mb-3 me-2">Add new author</a>
         </div>
     </div>
-
     <div class="row justify-content-center">
         <div class="col-lg">
             <div class="card shadow-lg border-0 rounded-lg mt-3">
@@ -31,16 +31,20 @@
                                     <th>Year</th>
                                     <th>Summary</th>
                                     <th>Rating</th>
+                                    <th>Tom number</th>
+                                    <th>Series Name</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for book in books %}
                                 <tr>
                                     <td><a href="{% url 'medialibrary:book-detail' book.pk %}">{{ book.title }}</a></td>
-                                    <td>{{ book.author }}</td>
+                                    <td><a href="{% url 'medialibrary:author-detail' book.author.pk %}">{{ book.author }}</a></td>
                                     <td>{{ book.published_date.year }}</td>
                                     <td>{{ book.summary }}</td>
                                     <td>{{ book.rating }}</td>
+                                    <td>{{ book.tom }}</td>
+                                    <td>{{ book.series_name }}</td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

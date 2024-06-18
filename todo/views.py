@@ -53,7 +53,6 @@ class TaskUpdateView(DetailBreadcrumbMixin, LoginRequiredMixin, UpdateView):
         breadcrumb_list = [
             ("Dashboard", reverse_lazy("dashboard")),
             ("Tasks", reverse_lazy("todo:task-list")),
-            # ("Tasks", reverse_lazy("todo:task-list")), jak tu dodać task id -> nie robić tego?
             ("Update task", None),
         ]
         return breadcrumb_list
@@ -111,7 +110,6 @@ class TaskCategoryUpdateView(DetailBreadcrumbMixin, LoginRequiredMixin, UpdateVi
         breadcrumb_list = [
             ("Dashboard", reverse_lazy("dashboard")),
             ("Tasks category list", reverse_lazy("todo:task-category-list")),
-            # ("Tasks category", reverse_lazy("todo:task-category-list")), jak tu dodać task id?
             ("Update category", None),
         ]
         return breadcrumb_list

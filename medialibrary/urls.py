@@ -1,6 +1,10 @@
 from django.urls import path
 
 from .views import (
+    BookAuthorCreateView,
+    BookAuthorDeleteView,
+    BookAuthorDetailView,
+    BookAuthorUpdateView,
     BookCreateView,
     BookDeleteView,
     BookDetailView,
@@ -18,6 +22,10 @@ app_name = "medialibrary"
 
 urlpatterns = [
     path("", MedialibraryMainPage.as_view(), name="medialibrary"),
+    path("books/author/new/", BookAuthorCreateView.as_view(), name="create-author"),
+    path("books/author/<int:pk>/update", BookAuthorUpdateView.as_view(), name="author-update"),
+    path("books/author/<int:pk>/", BookAuthorDetailView.as_view(), name="author-detail"),
+    path("books/author/<int:pk>/delete/", BookAuthorDeleteView.as_view(), name="author-delete"),
     path("books/", BookListView.as_view(), name="book-list"),
     path("books/new/", BookCreateView.as_view(), name="create-book"),
     path("books/<int:pk>/update", BookUpdateView.as_view(), name="book-update"),
