@@ -1,23 +1,23 @@
 from bootstrap_datepicker_plus.widgets import DatePickerInput, YearPickerInput
 from django import forms
 
-from .models import Car, CarMaintenance, FuelCosts
+from .models import Car, CarMaintenanceHistory, FuelCosts
 
 
 class CarForm(forms.ModelForm):
     class Meta:
         model = Car
         fields = [
-            "car_make",
-            "car_model",
-            "year",
+            "carmake",
+            "carmodel",
+            "year_of_production",
         ]
-        widgets = {"year": YearPickerInput()}
+        widgets = {"year_of_production": YearPickerInput()}
 
 
 class CarMaintenanceForm(forms.ModelForm):
     class Meta:
-        model = CarMaintenance
+        model = CarMaintenanceHistory
         fields = [
             "car",
             "date",
@@ -34,8 +34,8 @@ class FuelCostsForm(forms.ModelForm):
         fields = [
             "car",
             "date",
-            "fuel_amount",
-            "fuel_cost",
-            "mileage",
+            "fuelamount",
+            "fuelcost",
+            "odometer_reading",
         ]
         widgets = {"date": DatePickerInput()}

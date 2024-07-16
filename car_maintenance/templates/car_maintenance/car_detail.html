@@ -1,17 +1,58 @@
 {% extends "users/index.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
+<head>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</head>
 {% block content %}
-{{ form.media }}
-<div class="card mt-3">
-    <div class="card-body">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <div>
-                <h1 class="mb-0" style="font-style: italic; color: #0a53be;">{{ car.car_make }} {{ car.car_model }}</h1>
+    {{ form.media }}
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                    <h1 class="mb-0" style="font-style: italic; color: #0a53be;">{{ car.carmake }} {{ car.carmodel }}</h1>
+                </div>
             </div>
-
+            {% load plotly_dash %}
+            {% plotly_app name="CarMaintenance" %}
+            <p class="card-text">wykres kosztów paliwa i napraw per miesiąc</p>
         </div>
-        <p class="card-text">wykres kosztów paliwa w miesiącu</p>
-        <p class="card-text">wykres napraw i innych kosztów w miesiącu </p>
     </div>
-</div>
+    <div class="card mt-3">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Car costs
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Year of production</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for car in objects %}
+                        <tr>
+                            <td>{{ car.carmake }}</td>
+                            <td>{{ car.carmodel }}</td>
+                            <td>{{ car.year_of_production.year }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#datatablesSimple').DataTable({
+                "paging": true,
+                "ordering": true,
+                "info": true
+            });
+        });
+    </script>
 {% endblock content %}

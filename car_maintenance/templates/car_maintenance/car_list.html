@@ -14,7 +14,7 @@
     <div class="card mb-3">
         <div class="card-body">
             <h3 style="color: #0a53be;">
-                <a href="{% url 'cars:car-detail' car.pk %}" class="stylish-link">{{ car.car_make }} {{ car.car_model }}, {{ car.year.year }}</a>
+                <a href="{% url 'cars:car-detail' car.pk %}" class="stylish-link">{{ car.carmake }} {{ car.carmodel }}, {{ car.year_of_production.year }}</a>
             </h3>
             <div class="d-flex justify-content-between">
                 <a href="{% url 'cars:car-update' car.pk %}" class="btn btn-warning">Edit</a>

@@ -4,16 +4,17 @@ from django.utils.timezone import now
 
 
 class Car(models.Model):
-    car_make = models.CharField(max_length=100)
-    car_model = models.CharField(max_length=100)
-    year = models.DateField()
+    carmake = models.CharField(max_length=100)
+    carmodel = models.CharField(max_length=100)
+    year_of_production = models.DateField()
+    #owner=user
 
     def __str__(self) -> str:
-        return f"{self.car_make} {self.car_model} {self.year}"
+        return f"{self.carmake} {self.carmodel} {self.year_of_production}"
 
 
-class CarMaintenance(models.Model):
-    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+class CarMaintenanceHistory(models.Model):
+    car = models.ForeignKey(Car, on_delete=models.CASCADE, related_name='maintenancehistory')
     date = models.DateField(default=now)
     service = models.CharField(max_length=100)
     cost = models.DecimalField(max_digits=10, decimal_places=2)
@@ -26,9 +27,9 @@ class CarMaintenance(models.Model):
 class FuelCosts(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     date = models.DateField()
-    fuel_amount = models.DecimalField(max_digits=5, decimal_places=2, help_text="in litres")
-    fuel_cost = models.DecimalField(max_digits=10, decimal_places=2)
-    mileage = models.IntegerField(help_text="in kilometers")
+    fuelamount = models.DecimalField(max_digits=5, decimal_places=2, help_text="in litres")
+    fuelcost = models.DecimalField(max_digits=10, decimal_places=2)
+    odometer_reading = models.IntegerField(help_text="total mileage in kilometers", null=True, blank=True)
 
     def __str__(self):
-        return f"{self.date} - {self.fuel_amount}L - ${self.cost} - {self.mileage}km"
+        return f"{self.date} - {self.fuelamount}L - ${self.fuelcost}"

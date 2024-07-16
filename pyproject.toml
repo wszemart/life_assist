@@ -23,6 +23,9 @@ crispy-bootstrap4 = "2023.1"
 django-crispy-forms = "2.1.0"
 django-bootstrap-datepicker-plus = "^5.0.5"
 django-view-breadcrumbs = "2.5.1"
+django-extensions = "^3.2.3"
+django-plotly-dash = "^2.3.1"
+dpd-static-support = "^0.0.5"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "3.6.1"

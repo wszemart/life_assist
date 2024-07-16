@@ -1,6 +1,11 @@
 from django.urls import path
 
-from .views import CarListView, CarDetailView, CarCreateView, CarUpdateView, CarDeleteView
+from car_maintenance.views.car.create import CarCreateView
+from car_maintenance.views.car.delete import CarDeleteView
+from car_maintenance.views.car.detail import CarDetailView
+from car_maintenance.views.car.list import CarListView
+from car_maintenance.views.car.update import CarUpdateView
+from .dash import app
 
 app_name = "car_maintenance"
 
